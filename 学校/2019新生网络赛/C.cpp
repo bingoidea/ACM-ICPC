@@ -1,4 +1,4 @@
-// CC思路：预处理，保存范围内的2^x*3^y
+// CC思路：预处理，使用两个数组保存范围内的2^x和3^y的结果，然后使用第三个数组保存它们互相乘的结果，最后直接在第三个数组中查询范围内元素个数即可
 #include <iostream>
 #include <stdio.h>
 #include <vector>
@@ -52,3 +52,34 @@ int main()
     }
     return 0;
 }
+
+// // 耿直做法，每次样例都算一遍次方
+// #include <iostream>
+// #include <cmath>
+// typedef long long ll;
+// using namespace std;
+
+// const ll maxn = 10e17;
+
+// int main()
+// {
+    // ll l, r, m;
+    // // 题目说不大于100个样例，不代表一定有一百个，无需人为使用for循环控制
+    // while(cin >> l >> r)
+    // {
+        // int n = 0;
+        // // 对于2来说，58次方已经超过题目给的范围，所以无需再往后循环
+        // for(ll i = 0; i <= 58; i++)
+        // {
+            // // 对于3来说，37次方已经超过题目给的范围，所以无需再往后循环
+            // for(ll j = 0; j <= 37; j++)
+            // {
+                // m = pow(2,i)*pow(3,j); // i和j代表题目中的x和y，m记录每一个2^x*3^y
+                // if(m >= l && m <= r) n++;
+                // if(m > 2*maxn) break; // 相乘结果有可能超出题目给的范围，若超出，则后面的循环均不用再进行
+            // }
+        // }
+        // cout << n << endl;
+    // }
+    // return 0;
+// }
